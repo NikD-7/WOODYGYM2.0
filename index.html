@@ -26,6 +26,7 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -492,6 +493,78 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
 
+  <div class="popup-overlay">
+    <div class="popup-container">
+      <div class="left">
+        <img class="bg-2" src="images/bg-2.png" alt="" />
+        <img class="bg-1" src="images/bg-1.png" alt="" />
+        <img class="hero-image" src="images/hero-image.png" alt="" />
+        <img
+          class="hero-image-small"
+          src="images/hero-image-small.png"
+          alt=""
+        />
+      </div>
+
+      <div class="right">
+        <div class="skip-button">Skip in 5s</div>
+
+        <p class="logo">ThePriceForParadise</p>
+        <h2 class="popup-heading">Breath Class</h2>
+        <p class="description">
+          Join Woody in learning breathing techniques to improve your overall health and well being
+        </p>
+
+        <a href="#" class="visit-button">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <script> const popupOverlay = document.querySelector(".popup-overlay");
+    const skipButton = document.querySelector(".popup-container .skip-button");
+    const visitButton = document.querySelector(".popup-container .visit-button");
+
+    let remainingTime = 5;
+    let allowedToSkip = false;
+    let popupTimer;
+
+    const showAd = () => {
+        popupOverlay.classList.add("active");
+        popupTimer = setInterval(() => {
+            skipButton.innerHTML = `Skip in ${remainingTime}s`;
+            remainingTime--;
+
+            if (remainingTime == 0) {
+                allowedToSkip = true;
+                skipButton.innerHTML = "Skip";
+                clearInterval(popupTimer);
+            }
+        }, 1000);
+    };
+
+    const skipAd = () => {
+        popupOverlay.classList.remove("active");
+    };
+
+    skipButton.addEventListener("click", () => {
+        if (allowedToSkip) {
+            skipAd();
+        }
+    });
+
+    const startTimer = () => {
+        if (window.scrollY > 100) {
+            showAd();
+            window.removeEventListener("scroll", startTimer);
+        }
+    };
+
+    // Directly add the scroll event to show the popup each time the page loads
+    window.addEventListener("scroll", startTimer);
+    </script>
+
+
 </body>
+
 
 </html>

@@ -770,6 +770,17 @@ a:focus {
   font-family: 'Poppins', sans-serif;
 }
 
+/* Style for the "Click to Schedule" link */
+.schedule-link {
+  color: #3A5567; /* Default link color */
+  text-decoration: none;
+  font-weight: normal; /* Normal weight by default */
+  transition: font-weight 0.3s, color 0.3s; /* Smooth transition */
+  font-size: large;
+}
 
-/* end footer section*/
-/*# sourceMappingURL=style.css.map */
+.schedule-link:hover {
+  font-weight: bold;
+  color: #DF6257; /* Optional: Change color on hover */
+  text-decoration: none; /* Add this line to remove underline on hover */
+}

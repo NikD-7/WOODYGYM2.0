@@ -515,7 +515,8 @@
     </div>
   </div>
 
-  <script> const popupOverlay = document.querySelector(".popup-overlay");
+  <script>
+    const popupOverlay = document.querySelector(".popup-overlay");
     const skipButton = document.querySelector(".popup-container .skip-button");
     const visitButton = document.querySelector(".popup-container .visit-button");
 
@@ -549,14 +550,19 @@
 
     const startTimer = () => {
         if (window.scrollY > 100) {
-            showAd();
+            // Check if the ad has already been shown
+            if (!sessionStorage.getItem("adShown")) {
+                showAd();
+                // Mark the ad as shown
+                sessionStorage.setItem("adShown", "true");
+            }
             window.removeEventListener("scroll", startTimer);
         }
     };
 
     // Directly add the scroll event to show the popup each time the page loads
     window.addEventListener("scroll", startTimer);
-    </script> 
+</script>
     <script src="script.js"></script>
 
 

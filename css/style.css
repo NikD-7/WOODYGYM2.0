@@ -489,7 +489,8 @@ a:focus {
   padding: 45px 0 45px 15px;
 }
 
-.contact_section input {
+.contact_section input,
+.contact_section textarea {
   width: 100%;
   border: none;
   background-color: #ffffff;

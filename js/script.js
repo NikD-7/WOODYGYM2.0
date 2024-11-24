@@ -19,7 +19,7 @@ function copyToClipboard(text) {
   
     setTimeout(function() {
       document.body.removeChild(messageElement);
-    }, 2000); // Message disappears after 2 seconds
+    }, 2000); // 2 seconds
   }
   
   // Event listener for phone number

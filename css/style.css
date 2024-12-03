@@ -809,7 +809,16 @@ a:focus {
 .header_section .navbar-toggler {
   border-color: #FFFFFF;
 }
-
-
-
+.modal-header {
+  background-color: #3A5567;
+  color: white;
+}
+.btn-primary {
+  background-color: #3A5567;
+  color: white;
+}
+.modal-body {
+  background-color: #ffffff;
+  color: #3A5567;
+}
 
